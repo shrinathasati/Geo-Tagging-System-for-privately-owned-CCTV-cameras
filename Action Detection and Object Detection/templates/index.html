@@ -1,0 +1,66 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #050505;
+        font-family: 'Arial', sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        background-color: #101010;
+      }
+
+      #logo {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      h1 {
+        color: #ffffff;
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      #video-container {
+        border: 5px solid #f2ecec;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      #video-stream {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 5px;
+      }
+    </style>
+
+
+    <title>Live Video Prediction</title>
+  </head>
+  <body>
+    <!-- <h1>Live Video Prediction</h1> -->
+    <header>
+      <img id="logo" src="{{ url_for('static', filename='Logo.png') }}" alt="Logo">
+    </header>
+    <h1>Live Video Prediction</h1>
+    <div id="video-container">
+      <img id="video-stream" src="{{ url_for('video_feed') }}" width="640" height="480">
+  </div>
+  </body>
+</html>

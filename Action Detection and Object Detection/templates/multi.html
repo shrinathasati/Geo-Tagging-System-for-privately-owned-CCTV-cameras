@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Detection</title>
+  <style>
+    #videos-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+
+    .video {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="videos-container">
+    
+    <video class="video" onclick="startActionDetection(1)" controls>
+      <source src="{{ url_for('static', filename='fight_in.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video class="video" onclick="startActionDetection(2)" controls>
+      <source src="{{ url_for('static', filename='1.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video class="video" onclick="startActionDetection(3)" controls>
+      <source src="{{ url_for('static', filename='2.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <video class="video" onclick="startActionDetection(4)" controls>
+      <source src="{{ url_for('static', filename='3.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function startActionDetection(condi) {
+      var videoPath;
+      if(condi==1){
+
+        videoPath="{{ url_for('static', filename='fight_in.mp4') }}"
+      }
+      if(condi==2){
+
+        videoPath="{{ url_for('static', filename='1.mp4') }}"
+      }
+      if(condi==3){
+
+        videoPath="{{ url_for('static', filename='2.mp4') }}"
+      }
+      if(condi==4){
+
+        videoPath="{{ url_for('static', filename='3.mp4') }}"
+      }
+      fetch(`/video_feed?video_path=${videoPath}`, {
+        method: 'GET',
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response;
+      })
+      .then(response => response.blob())
+      .then(blob => URL.createObjectURL(blob))
+      .then(url => {
+        const videoPlayer = document.createElement('video');
+        videoPlayer.src = url;
+        videoPlayer.controls = true;
+        videoPlayer.autoplay = true;
+        document.body.appendChild(videoPlayer);
+      })
+      .catch(error => console.error('Error starting action detection:', error));
+    }
+  </script>
+
+</body>
+</html>
