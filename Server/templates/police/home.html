@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police home page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Bree Serif', serif;
+}
+:root {
+    --navbar-height: 500px;
+}
+
+/* Navigation Bar */
+#navbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+#navbar ul {
+    display: flex;
+
+
+}
+
+#navbar ul li {
+    list-style: none;
+
+
+}
+
+#navbar ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding:5px 25px;
+    font-size: 1rem;
+
+}
+
+#navbar ul li a:hover {
+    color: white;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
+}
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 35px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 0.85;
+}
+
+.notification-icon {
+    position: absolute;
+    /* top: 5px; */
+    right: 10px;
+    cursor: pointer;
+} 
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        
+        <ul>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">About</a></li>
+            <li class="item"><a href="#">Services</a></li>
+            <li class="item"><a href="#">Contact us</a></li>
+
+            <li class="item">
+                <a href="notification.html" class="notification-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bell" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+
+</html>
