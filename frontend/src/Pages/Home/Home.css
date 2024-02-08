@@ -1,0 +1,16 @@
+.home{
+    padding: 20px;
+    height: 86vh;
+    background: linear-gradient(to bottom right, #e1e1ed14, #0044cc96);
+    height: auto;
+}
+.features{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10rem
+}
+.slids{
+    margin: 55px 200px;
+    height: 30rem;
+    overflow: hidden;
+}
